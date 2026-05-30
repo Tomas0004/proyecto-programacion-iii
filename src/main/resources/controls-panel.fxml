@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uptc.ui.ControlsPanelController"
+      spacing="15" style="-fx-border-color: #404040; -fx-border-width: 1 0 0 1; -fx-background-color: #2D2D30;">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- Título -->
+    <Label text="Controles">
+        <font>
+            <Font name="Arial Bold" size="14"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF;</style>
+    </Label>
+
+    <!-- Sección de Figuras -->
+    <Label text="Figuras Disponibles">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <ListView fx:id="shapesListView" prefHeight="150" style="-fx-control-inner-background: #1E1E1E; -fx-text-fill: #CCCCCC;"/>
+
+    <!-- Sección de Coordenadas -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Coordenadas de la Figura">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Label text="Posición X:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="xTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Label text="Posición Y:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="yTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Label text="Tamaño de la Figura:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="sizeTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="10"/>
+
+    <Button fx:id="addShapeButton" text="Agregar Figura" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #0E639C; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onAddShape"/>
+
+    <!-- Sección de Rango del Plano -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Rango del Plano">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Label text="X Mínimo:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="minXTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="-50"/>
+
+    <Label text="X Máximo:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="maxXTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="50"/>
+
+    <Label text="Y Mínimo:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="minYTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="-50"/>
+
+    <Label text="Y Máximo:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="maxYTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="50"/>
+
+    <Button fx:id="updateRangeButton" text="Actualizar Rango" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #16A34A; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onUpdateRange"/>
+
+    <!-- Sección de Cuadrícula -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Configuración de Cuadrícula">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Label text="Espaciado de Cuadrícula:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="gridSpacingTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="10"/>
+
+    <Button fx:id="toggleGridButton" text="Mostrar/Ocultar Cuadrícula" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #9D5700; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onToggleGrid"/>
+
+</VBox>

@@ -1,0 +1,56 @@
+# Compiler and IDE
+*.class
+*.o
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+pom.xml.asc
+.mvn/
+
+# IDE
+.idea/
+.eclipse
+.classpath
+.project
+.settings/
+*.iml
+*.iws
+*.ipr
+*~
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Gradle
+.gradle/
+build/
+
+# General
+*.log
+*.swp
+*.swo
+*~
+.classpath
+.project
+.settings
+.target
+.class

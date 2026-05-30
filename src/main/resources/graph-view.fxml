@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uptc.ui.GraphController">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <!-- Canvas Principal -->
+    <center fx:id="canvasContainer"/>
+
+    <!-- Panel Inferior -->
+    <bottom>
+        <VBox spacing="10" style="-fx-border-color: #CCCCCC; -fx-border-width: 1; -fx-background-color: #F0F0F0;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <!-- Título -->
+            <Label text="Información del Grafo">
+                <font>
+                    <Font size="14" name="Arial Bold"/>
+                </font>
+            </Label>
+
+            <!-- Información -->
+            <Label fx:id="infoLabel" wrapText="true">
+                <font>
+                    <Font size="12" name="Arial"/>
+                </font>
+            </Label>
+
+            <!-- Botones -->
+            <HBox spacing="10">
+                <Button text="Actualizar" style="-fx-padding: 8px 20px; -fx-font-size: 12px;" onAction="#onRefresh"/>
+                <Button text="Ver Detalles" style="-fx-padding: 8px 20px; -fx-font-size: 12px;" onAction="#onShowDetails"/>
+                <Button text="BFS" style="-fx-padding: 8px 20px; -fx-font-size: 12px;" onAction="#onBFS"/>
+                <Button text="DFS" style="-fx-padding: 8px 20px; -fx-font-size: 12px;" onAction="#onDFS"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

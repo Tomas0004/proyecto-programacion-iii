@@ -117,4 +117,28 @@
             style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #9D5700; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
             onAction="#onToggleGrid"/>
 
+    <!-- Sección de Eliminación de Nodos -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Eliminar Nodo">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Label text="Coordenada X del Nodo:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="deleteNodeXTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Label text="Coordenada Y del Nodo:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="deleteNodeYTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Button fx:id="deleteNodeButton" text="Eliminar Nodo" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #CA3C3C; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onDeleteNode"/>
+
 </VBox>

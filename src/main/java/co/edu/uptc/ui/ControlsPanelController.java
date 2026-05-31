@@ -1,11 +1,14 @@
 package co.edu.uptc.ui;
 
 import co.edu.uptc.model.Shape;
+import co.edu.uptc.model.Graph;
+import co.edu.uptc.model.Node;
 import co.edu.uptc.service.CartesianPlaneService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 
 /**
  * Controlador para el panel de controles lateral.
@@ -37,6 +40,12 @@ public class ControlsPanelController {
     
     @FXML
     private TextField gridSpacingTextField;
+
+    @FXML
+    private TextField deleteNodeXTextField;
+
+    @FXML
+    private TextField deleteNodeYTextField;
 
     private CartesianPlane2D cartesianCanvas;
     private CartesianPlaneService planeService;
@@ -173,5 +182,49 @@ public class ControlsPanelController {
      */
     public int getGridSpacing() {
         return parseInt(gridSpacingTextField, 10);
+    }
+
+    @FXML
+    private void onDeleteNode() {
+        if (cartesianCanvas == null) {
+            System.err.println("CartesianCanvas no está inicializado");
+            return;
+        }
+
+        double x = parseDouble(deleteNodeXTextField, 0);
+        double y = parseDouble(deleteNodeYTextField, 0);
+
+        Graph graph = cartesianCanvas.getGraph();
+        if (graph == null) {
+            System.err.println("El grafo no está inicializado");
+            return;
+        }
+
+        // Buscar y eliminar el nodo con las coordenadas exactas
+        Node nodeToDelete = null;
+        for (Node node : graph.getNodes()) {
+            if (node.getX() == x && node.getY() == y) {
+                nodeToDelete = node;
+                break;
+            }
+        }
+
+        if (nodeToDelete != null) {
+            graph.removeNode(nodeToDelete.getId());
+            cartesianCanvas.draw();
+            
+            // Mostrar confirmación
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Nodo Eliminado");
+            alert.setHeaderText("Eliminación Exitosa");
+            alert.setContentText("El nodo en coordenadas (" + x + ", " + y + ") ha sido eliminado.");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Nodo No Encontrado");
+            alert.setHeaderText("No existe nodo");
+            alert.setContentText("No se encontró un nodo en las coordenadas (" + x + ", " + y + ")");
+            alert.showAndWait();
+        }
     }
 }

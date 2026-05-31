@@ -26,7 +26,6 @@ public class CartesianPlane2D extends Canvas {
     private List<Figure> figures;
     private Map<String, Node> gridIntersections;  // Mapa de posiciones de cuadrícula a nodos
     private static final int PADDING = 60;
-    private static final int NODE_RADIUS = 15;
     private boolean showGrid = true;
     private int gridSpacing = 1;
 
@@ -53,7 +52,7 @@ public class CartesianPlane2D extends Canvas {
     }
 
     public CartesianPlane2D(Graph graph, CartesianPlaneService planeService) {
-        super(1400, 1000);
+        super(1400, 800);
         this.graph = graph;
         this.planeService = planeService;
         this.figures = new ArrayList<>();
@@ -403,7 +402,7 @@ public class CartesianPlane2D extends Canvas {
     }
 
     /**
-     * Dibuja los nodos del grafo.
+     * Dibuja los nodos del grafo como puntos grises pequeños.
      */
     private void drawNodes(GraphicsContext gc) {
         if (graph == null) return;
@@ -417,21 +416,9 @@ public class CartesianPlane2D extends Canvas {
             int x = screenX(node.getX(), range[0], range[1], width);
             int y = screenY(node.getY(), range[2], range[3], height);
 
-            // Dibujar círculo del nodo
-            gc.setFill(Color.web("#4682B4"));
-            gc.fillOval(x - NODE_RADIUS, y - NODE_RADIUS, NODE_RADIUS * 2, NODE_RADIUS * 2);
-
-            // Dibujar borde del nodo
-            gc.setStroke(Color.BLACK);
-            gc.setLineWidth(2);
-            gc.strokeOval(x - NODE_RADIUS, y - NODE_RADIUS, NODE_RADIUS * 2, NODE_RADIUS * 2);
-
-            // Dibujar etiqueta del nodo
-            gc.setFill(Color.WHITE);
-            gc.setFont(new Font("Arial", 12));
-            String label = node.getLabel();
-            int labelWidth = (int) (label.length() * 7);
-            gc.fillText(label, x - labelWidth / 2, y + 5);
+            // Dibujar punto gris pequeño (2 píxeles de radio)
+            gc.setFill(Color.web("#A0A0A0"));
+            gc.fillOval(x - 2, y - 2, 4, 4);
         }
     }
 
@@ -548,6 +535,10 @@ public class CartesianPlane2D extends Canvas {
     public void updateGraph(Graph newGraph) {
         this.graph = newGraph;
         draw();
+    }
+
+    public Graph getGraph() {
+        return graph;
     }
 }
 

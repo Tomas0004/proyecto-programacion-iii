@@ -47,7 +47,7 @@ public class MainGraphController {
         // Crear canvas del plano cartesiano
         cartesianCanvas = new CartesianPlane2D(graph, planeService);
         cartesianCanvas.setWidth(1400);
-        cartesianCanvas.setHeight(1000);
+        cartesianCanvas.setHeight(800);
         canvasContainer.getChildren().add(cartesianCanvas);
 
         // Cargar panel de controles desde FXML

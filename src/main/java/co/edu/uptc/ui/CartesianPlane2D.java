@@ -28,7 +28,7 @@ public class CartesianPlane2D extends Canvas {
     private static final int PADDING = 60;
     private static final int NODE_RADIUS = 15;
     private boolean showGrid = true;
-    private int gridSpacing = 10;
+    private int gridSpacing = 1;
 
     // Variables para manejo del ratón
     private Figure selectedFigure;
@@ -53,7 +53,7 @@ public class CartesianPlane2D extends Canvas {
     }
 
     public CartesianPlane2D(Graph graph, CartesianPlaneService planeService) {
-        super(800, 600);
+        super(1400, 1000);
         this.graph = graph;
         this.planeService = planeService;
         this.figures = new ArrayList<>();
@@ -75,6 +75,7 @@ public class CartesianPlane2D extends Canvas {
      * Inicializa los nodos en las intersecciones de la cuadrícula.
      */
     private void initializeGridIntersections() {
+
         double[] range = planeService.getPlaneRange();
         double minX = range[0];
         double maxX = range[1];
@@ -85,6 +86,7 @@ public class CartesianPlane2D extends Canvas {
         for (int gridX = (int) minX; gridX <= (int) maxX; gridX += gridSpacing) {
             for (int gridY = (int) minY; gridY <= (int) maxY; gridY += gridSpacing) {
                 String key = gridX + "," + gridY;
+
                 if (!gridIntersections.containsKey(key)) {
                     Node node = new Node(nodeId, gridX, gridY);
                     gridIntersections.put(key, node);
@@ -99,6 +101,7 @@ public class CartesianPlane2D extends Canvas {
      * Dibuja el plano cartesiano y el grafo.
      */
     public void draw() {
+        initializeGridIntersections();
         GraphicsContext gc = getGraphicsContext2D();
         
         // Limpiar canvas con color de fondo oscuro
@@ -131,8 +134,10 @@ public class CartesianPlane2D extends Canvas {
         gc.setLineWidth(0.5);
 
         // Líneas verticales de la cuadrícula
+
         for (int x = (int) minX; x <= (int) maxX; x += gridSpacing) {
             int px = screenX(x, minX, maxX, width);
+
             gc.strokeLine(px, PADDING, px, height - PADDING);
         }
 

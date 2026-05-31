@@ -1,4 +1,4 @@
-package co.edu.uptc.logic;
+package co.edu.uptc.service;
 
 import co.edu.uptc.model.Node;
 import java.util.Collection;

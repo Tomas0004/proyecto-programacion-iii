@@ -1,8 +1,8 @@
 package co.edu.uptc.ui;
 
 import co.edu.uptc.model.Graph;
-import co.edu.uptc.logic.CartesianPlaneService;
-import co.edu.uptc.logic.GraphService;
+import co.edu.uptc.service.CartesianPlaneService;
+import co.edu.uptc.service.GraphService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;

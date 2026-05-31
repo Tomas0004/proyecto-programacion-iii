@@ -2,9 +2,9 @@ package co.edu.uptc;
 
 import co.edu.uptc.model.Graph;
 import co.edu.uptc.model.Node;
+import co.edu.uptc.service.CartesianPlaneService;
+import co.edu.uptc.service.GraphService;
 import co.edu.uptc.model.Edge;
-import co.edu.uptc.logic.CartesianPlaneService;
-import co.edu.uptc.logic.GraphService;
 import co.edu.uptc.ui.GraphVisualizer;
 
 import javafx.application.Application;

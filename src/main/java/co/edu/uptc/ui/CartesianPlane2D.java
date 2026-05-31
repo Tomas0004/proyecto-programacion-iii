@@ -4,8 +4,7 @@ import co.edu.uptc.model.Node;
 import co.edu.uptc.model.Edge;
 import co.edu.uptc.model.Graph;
 import co.edu.uptc.model.Shape;
-import co.edu.uptc.logic.CartesianPlaneService;
-
+import co.edu.uptc.service.CartesianPlaneService;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;

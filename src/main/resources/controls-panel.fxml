@@ -155,4 +155,66 @@
             style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #0C7D2D; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
             onAction="#onFindShortestPath"/>
 
+    <!-- Sección de Segmentos Laterales -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Segmento Lateral">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Label text="Nodo Inicial X:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="segmentStart1TextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Label text="Nodo Inicial Y:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="segmentStart2TextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Label text="Nodo Final X:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="segmentEnd1TextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="5"/>
+
+    <Label text="Nodo Final Y:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="segmentEnd2TextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
+
+    <Label text="Ancho del Segmento:">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="segmentWidthTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="1.0"/>
+
+    <Button fx:id="addSegmentButton" text="Crear Segmento" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #7C3AED; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onAddSegment"/>
+
+    <!-- Sección de Persistencia -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Persistencia del Plano">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Label text="Nombre del Archivo (sin .json):">
+        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
+    </Label>
+    <TextField fx:id="filenameTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="mi_plano"/>
+
+    <Button fx:id="saveButton" text="Guardar Plano" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #059669; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onSavePlane"/>
+
+    <Button fx:id="loadButton" text="Cargar Plano" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #0891B2; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onLoadPlane"/>
+
 </VBox>

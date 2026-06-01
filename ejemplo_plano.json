@@ -1,0 +1,46 @@
+{
+  "range": [
+    -50.0,
+    50.0,
+    -50.0,
+    50.0
+  ],
+  "figures": [
+    {
+      "shape": "robot",
+      "x": -40.0,
+      "y": 0.0,
+      "size": 1.0
+    },
+    {
+      "shape": "destination",
+      "x": 40.0,
+      "y": 0.0,
+      "size": 1.0
+    },
+    {
+      "shape": "square",
+      "x": 0.0,
+      "y": 0.0,
+      "size": 15.0
+    }
+  ],
+  "segments": [
+    {
+      "startX": -20.0,
+      "startY": -10.0,
+      "endX": -20.0,
+      "endY": 10.0,
+      "width": 2.0,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": -10.0,
+      "endX": 20.0,
+      "endY": 10.0,
+      "width": 2.0,
+      "type": "VERTICAL"
+    }
+  ]
+}

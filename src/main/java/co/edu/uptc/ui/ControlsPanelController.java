@@ -6,6 +6,7 @@ import co.edu.uptc.model.Shape;
 import co.edu.uptc.service.CartesianPlaneService;
 import co.edu.uptc.service.GraphService;
 import co.edu.uptc.service.GraphService.DijkstraResult;
+import co.edu.uptc.service.PlaneSerializer;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -48,6 +49,24 @@ public class ControlsPanelController {
 
     @FXML
     private TextField deleteNodeYTextField;
+    
+    @FXML
+    private TextField segmentStart1TextField;
+    
+    @FXML
+    private TextField segmentStart2TextField;
+    
+    @FXML
+    private TextField segmentEnd1TextField;
+    
+    @FXML
+    private TextField segmentEnd2TextField;
+    
+    @FXML
+    private TextField segmentWidthTextField;
+    
+    @FXML
+    private TextField filenameTextField;
 
     private CartesianPlane2D cartesianCanvas;
     private CartesianPlaneService planeService;
@@ -328,5 +347,157 @@ public class ControlsPanelController {
         // Mostrar el camino en el canvas
         cartesianCanvas.setShortestPath(result.path);
         cartesianCanvas.draw();
+    }
+    
+    /**
+     * Crea un segmento lateral entre dos coordenadas específicas.
+     */
+    @FXML
+    private void onAddSegment() {
+        if (cartesianCanvas == null) {
+            System.err.println("CartesianCanvas no está inicializado");
+            return;
+        }
+        
+        Graph graph = cartesianCanvas.getGraph();
+        if (graph == null) {
+            System.err.println("El grafo no está inicializado");
+            return;
+        }
+        
+        double startX = parseDouble(segmentStart1TextField, 0);
+        double startY = parseDouble(segmentStart2TextField, 0);
+        double endX = parseDouble(segmentEnd1TextField, 5);
+        double endY = parseDouble(segmentEnd2TextField, 0);
+        double width = parseDouble(segmentWidthTextField, 1.0);
+        
+        // Validar que sea horizontal o vertical
+        if (Math.abs(startX - endX) > 0.01 && Math.abs(startY - endY) > 0.01) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Segmento Inválido");
+            alert.setHeaderText("El segmento debe ser lateral");
+            alert.setContentText("El segmento debe ser horizontal o vertical, no diagonal.");
+            alert.showAndWait();
+            return;
+        }
+        
+        // Crear nodos temporales para el segmento
+        Node startNode = new Node(999, startX, startY, "Seg_Start");
+        Node endNode = new Node(998, endX, endY, "Seg_End");
+        
+        try {
+            cartesianCanvas.addLateralSegment(startNode, endNode, width);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Segmento Creado");
+            alert.setHeaderText("Segmento Lateral Creado");
+            alert.setContentText(String.format("Segmento creado desde (%.1f, %.1f) a (%.1f, %.1f) con ancho %.2f",
+                    startX, startY, endX, endY, width));
+            alert.showAndWait();
+        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al crear segmento");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
+    }
+    
+    /**
+     * Guarda el plano actual (figuras y segmentos) en un archivo JSON.
+     */
+    @FXML
+    private void onSavePlane() {
+        if (cartesianCanvas == null || planeService == null) {
+            System.err.println("CartesianCanvas o PlaneService no están inicializados");
+            return;
+        }
+        
+        String filename = filenameTextField.getText().trim();
+        if (filename.isEmpty()) {
+            filename = "mi_plano";
+        }
+        
+        String filepath = filename + ".json";
+        
+        try {
+            PlaneSerializer.savePlane(
+                    filepath,
+                    planeService,
+                    cartesianCanvas.getFigures(),
+                    cartesianCanvas.getLateralSegments()
+            );
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Plano Guardado");
+            alert.setHeaderText("Guardado Exitoso");
+            alert.setContentText("El plano ha sido guardado en: " + filepath);
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al Guardar");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error al guardar el plano: " + e.getMessage());
+            alert.showAndWait();
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Carga un plano previamente guardado desde un archivo JSON.
+     */
+    @FXML
+    private void onLoadPlane() {
+        if (cartesianCanvas == null || planeService == null) {
+            System.err.println("CartesianCanvas o PlaneService no están inicializados");
+            return;
+        }
+        
+        String filename = filenameTextField.getText().trim();
+        if (filename.isEmpty()) {
+            filename = "mi_plano";
+        }
+        
+        String filepath = filename + ".json";
+        
+        try {
+            PlaneSerializer.PlaneState state = PlaneSerializer.loadPlane(filepath);
+            
+            // Aplicar rango del plano
+            planeService.setPlaneRange(state.range[0], state.range[1], state.range[2], state.range[3]);
+            
+            // Limpiar figuras y segmentos anteriores
+            cartesianCanvas.clearFigures();
+            cartesianCanvas.clearLateralSegments();
+            
+            // Recargar figuras
+            for (PlaneSerializer.FigureData figData : state.figures) {
+                Shape shape = PlaneSerializer.shapeFromId(figData.shape);
+                cartesianCanvas.addFigure(shape, figData.x, figData.y, figData.size);
+            }
+            
+            // Recargar segmentos laterales
+            for (PlaneSerializer.LateralSegmentData segData : state.segments) {
+                Node startNode = new Node(999, segData.startX, segData.startY, "Seg_Start");
+                Node endNode = new Node(998, segData.endX, segData.endY, "Seg_End");
+                cartesianCanvas.addLateralSegment(startNode, endNode, segData.width);
+            }
+            
+            // Redibujar el canvas
+            cartesianCanvas.draw();
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Plano Cargado");
+            alert.setHeaderText("Carga Exitosa");
+            alert.setContentText("El plano ha sido cargado desde: " + filepath);
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al Cargar");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error al cargar el plano: " + e.getMessage());
+            alert.showAndWait();
+            e.printStackTrace();
+        }
     }
 }

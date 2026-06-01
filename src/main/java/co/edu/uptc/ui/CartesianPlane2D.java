@@ -4,6 +4,7 @@ import co.edu.uptc.model.Node;
 import co.edu.uptc.model.Edge;
 import co.edu.uptc.model.Graph;
 import co.edu.uptc.model.Shape;
+import co.edu.uptc.model.LateralSegment;
 import co.edu.uptc.service.CartesianPlaneService;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -24,6 +25,7 @@ public class CartesianPlane2D extends Canvas {
     private Graph graph;
     private CartesianPlaneService planeService;
     private List<Figure> figures;
+    private List<LateralSegment> lateralSegments;  // Segmentos laterales (no diagonales)
     private Map<String, Node> gridIntersections;  // Mapa de posiciones de cuadrícula a nodos
     private static final int PADDING = 60;
     private boolean showGrid = true;
@@ -57,6 +59,7 @@ public class CartesianPlane2D extends Canvas {
         this.graph = graph;
         this.planeService = planeService;
         this.figures = new ArrayList<>();
+        this.lateralSegments = new ArrayList<>();
         this.gridIntersections = new HashMap<>();
         this.selectedFigure = null;
         this.shortestPath = new ArrayList<>();
@@ -109,6 +112,7 @@ public class CartesianPlane2D extends Canvas {
     /**
      * Verifica si un nodo está debajo de alguna figura (solo SQUARE y CIRCLE).
      * Los nodos bajo ROBOT y DESTINATION permanecen en el grafo.
+     * También verifica si está bajo un segmento lateral.
      */
     private boolean isNodeUnderFigure(double nodeX, double nodeY) {
         double[] range = planeService.getPlaneRange();
@@ -135,6 +139,14 @@ public class CartesianPlane2D extends Canvas {
                 return true;
             }
         }
+        
+        // Verificar si está bajo un segmento lateral
+        for (LateralSegment segment : lateralSegments) {
+            if (segment.containsPoint(nodeX, nodeY)) {
+                return true;
+            }
+        }
+        
         return false;
     }
     
@@ -199,6 +211,7 @@ public class CartesianPlane2D extends Canvas {
         }
         drawPlane(gc);
         drawFigures(gc);
+        drawLateralSegments(gc);
         drawEdges(gc);
         drawNodes(gc);
     }
@@ -382,6 +395,77 @@ public class CartesianPlane2D extends Canvas {
     public void toggleGridVisibility(int spacing) {
         showGrid = !showGrid;
         this.gridSpacing = spacing;
+    }
+    
+    /**
+     * Añade un segmento lateral (horizontal o vertical) entre dos nodos.
+     * Los nodos bajo este segmento no formarán parte del grafo.
+     */
+    public void addLateralSegment(Node startNode, Node endNode, double width) {
+        // Validar que sea horizontal o vertical
+        if (Math.abs(startNode.getX() - endNode.getX()) > 0.01 && 
+            Math.abs(startNode.getY() - endNode.getY()) > 0.01) {
+            throw new IllegalArgumentException("El segmento debe ser horizontal o vertical, no diagonal");
+        }
+        
+        LateralSegment segment = new LateralSegment(startNode, endNode, width);
+        lateralSegments.add(segment);
+        
+        // Reinicializar el grafo para excluir nodos bajo el segmento
+        initializeGridIntersections();
+    }
+    
+    /**
+     * Obtiene la lista de segmentos laterales.
+     */
+    public List<LateralSegment> getLateralSegments() {
+        return new ArrayList<>(lateralSegments);
+    }
+    
+    /**
+     * Limpia todos los segmentos laterales.
+     */
+    public void clearLateralSegments() {
+        lateralSegments.clear();
+    }
+    
+    /**
+     * Dibuja todos los segmentos laterales.
+     */
+    private void drawLateralSegments(GraphicsContext gc) {
+        if (lateralSegments.isEmpty()) return;
+        
+        double[] range = planeService.getPlaneRange();
+        int width = (int) getWidth();
+        int height = (int) getHeight();
+        
+        for (LateralSegment segment : lateralSegments) {
+            // Obtener coordenadas de pantalla
+            int x1 = screenX(segment.getStartNode().getX(), range[0], range[1], width);
+            int y1 = screenY(segment.getStartNode().getY(), range[2], range[3], height);
+            int x2 = screenX(segment.getEndNode().getX(), range[0], range[1], width);
+            int y2 = screenY(segment.getEndNode().getY(), range[2], range[3], height);
+            
+            // Convertir el ancho a píxeles
+            double widthPixels = (segment.getWidth() / (range[1] - range[0])) * (width - 2 * PADDING);
+            
+            // Dibujar el segmento como un rectángulo grueso
+            gc.setStroke(Color.web("#00BFFF"));
+            gc.setLineWidth(widthPixels);
+            gc.strokeLine(x1, y1, x2, y2);
+            
+            // Dibujar pequeños círculos en los extremos
+            gc.setFill(Color.web("#00BFFF"));
+            gc.fillOval(x1 - 4, y1 - 4, 8, 8);
+            gc.fillOval(x2 - 4, y2 - 4, 8, 8);
+            
+            // Dibujar etiqueta del ancho
+            int midX = (x1 + x2) / 2;
+            int midY = (y1 + y2) / 2;
+            gc.setFill(Color.web("#00BFFF"));
+            gc.setFont(new Font("Arial", 10));
+            gc.fillText(String.format("w:%.2f", segment.getWidth()), midX + 5, midY - 5);
+        }
     }
 
     /**
@@ -599,6 +683,13 @@ public class CartesianPlane2D extends Canvas {
      */
     private void handleMouseReleased(MouseEvent event) {
         selectedFigure = null;
+    }
+
+    /**
+     * Obtiene la lista de figuras (para uso con persistencia).
+     */
+    public List<Figure> getFigures() {
+        return new ArrayList<>(figures);
     }
 
     public void updateGraph(Graph newGraph) {

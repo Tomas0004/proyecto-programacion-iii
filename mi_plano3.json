@@ -1,0 +1,104 @@
+{
+  "range": [
+    0.0,
+    10.0,
+    0.0,
+    10.0
+  ],
+  "figures": [
+    {
+      "shape": "robot",
+      "x": 1.0,
+      "y": 1.0,
+      "size": 1.0
+    },
+    {
+      "shape": "destination",
+      "x": 7.0,
+      "y": 7.0,
+      "size": 1.0
+    }
+  ],
+  "segments": [
+    {
+      "startX": 0.0,
+      "startY": 0.0,
+      "endX": 0.0,
+      "endY": 9.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 2.0,
+      "endX": 2.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 6.0,
+      "endX": 4.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 2.0,
+      "endX": 6.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 4.0,
+      "endX": 8.0,
+      "endY": 9.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 0.0,
+      "endX": 9.0,
+      "endY": 0.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 2.0,
+      "endX": 8.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 6.0,
+      "endX": 4.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 8.0,
+      "endX": 2.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 8.0,
+      "endX": 6.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    }
+  ]
+}

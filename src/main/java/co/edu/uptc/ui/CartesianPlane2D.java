@@ -448,6 +448,8 @@ public class CartesianPlane2D extends Canvas {
             
             // Convertir el ancho a píxeles
             double widthPixels = (segment.getWidth() / (range[1] - range[0])) * (width - 2 * PADDING);
+            // Asegurar un ancho mínimo visible incluso cuando el plano es muy grande
+            widthPixels = Math.max(widthPixels * 2, 6);
             
             // Dibujar el segmento como un rectángulo grueso
             gc.setStroke(Color.web("#FFFFFF"));
@@ -564,8 +566,8 @@ public class CartesianPlane2D extends Canvas {
             int y = screenY(node.getY(), range[2], range[3], height);
 
             // Dibujar punto gris pequeño (2 píxeles de radio)
-            gc.setFill(Color.web("#340000"));
-            gc.fillOval(x - 2, y - 2, 4, 4);
+            gc.setFill(Color.web("#630000"));
+            gc.fillOval(x - 2, y - 2, 5, 5);
         }
     }
 

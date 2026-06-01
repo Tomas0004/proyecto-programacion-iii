@@ -55,7 +55,7 @@ public class CartesianPlane2D extends Canvas {
     }
 
     public CartesianPlane2D(Graph graph, CartesianPlaneService planeService) {
-        super(1600, 1000);
+        super(1600, 950);
         this.graph = graph;
         this.planeService = planeService;
         this.figures = new ArrayList<>();
@@ -229,8 +229,8 @@ public class CartesianPlane2D extends Canvas {
         int width = (int) getWidth();
         int height = (int) getHeight();
 
-        gc.setStroke(Color.web("#333333"));
-        gc.setLineWidth(0.5);
+        gc.setStroke(Color.web("#810000"));
+        gc.setLineWidth(0.02);
 
         // Líneas verticales de la cuadrícula
 
@@ -247,14 +247,14 @@ public class CartesianPlane2D extends Canvas {
         }
 
         // Dibujar puntos de intersección
-        gc.setFill(Color.web("#555555"));
-        for (int x = (int) minX; x <= (int) maxX; x += gridSpacing) {
-            for (int y = (int) minY; y <= (int) maxY; y += gridSpacing) {
-                int px = screenX(x, minX, maxX, width);
-                int py = screenY(y, minY, maxY, height);
-                gc.fillOval(px - 2, py - 2, 4, 4);
-            }
-        }
+        // gc.setFill(Color.web("#810000"));
+        // for (int x = (int) minX; x <= (int) maxX; x += gridSpacing) {
+        //     for (int y = (int) minY; y <= (int) maxY; y += gridSpacing) {
+        //         int px = screenX(x, minX, maxX, width);
+        //         int py = screenY(y, minY, maxY, height);
+        //         gc.fillOval(px - 2, py - 2, 4, 4);
+        //     }
+        // }
     }
 
     /**
@@ -288,7 +288,7 @@ public class CartesianPlane2D extends Canvas {
 
         // Dibujar marcas de escala
         gc.setFont(new Font("Arial", 10));
-        gc.setFill(Color.web("#CCCCCC"));
+        gc.setFill(Color.web("#ffffff"));
         for (double x = minX; x <= maxX; x += (maxX - minX) / 10) {
             int px = screenX(x, minX, maxX, width);
             gc.strokeLine(px, originY - 5, px, originY + 5);
@@ -450,12 +450,12 @@ public class CartesianPlane2D extends Canvas {
             double widthPixels = (segment.getWidth() / (range[1] - range[0])) * (width - 2 * PADDING);
             
             // Dibujar el segmento como un rectángulo grueso
-            gc.setStroke(Color.web("#810000"));
+            gc.setStroke(Color.web("#FFFFFF"));
             gc.setLineWidth(widthPixels);
             gc.strokeLine(x1, y1, x2, y2);
             
             // Dibujar pequeños círculos en los extremos
-            gc.setFill(Color.web("#810000"));
+            gc.setFill(Color.web("#969696"));
             gc.fillOval(x1 - 4, y1 - 4, 8, 8);
             gc.fillOval(x2 - 4, y2 - 4, 8, 8);
             
@@ -472,8 +472,8 @@ public class CartesianPlane2D extends Canvas {
         int width = (int) getWidth();
         int height = (int) getHeight();
 
-        gc.setStroke(Color.web("#A0A0A0"));
-        gc.setLineWidth(1.5);
+        gc.setStroke(Color.web("#630000"));
+        // gc.setLineWidth(1.5);
 
         for (Edge edge : graph.getEdges()) {
             Node source = edge.getSource();
@@ -564,7 +564,7 @@ public class CartesianPlane2D extends Canvas {
             int y = screenY(node.getY(), range[2], range[3], height);
 
             // Dibujar punto gris pequeño (2 píxeles de radio)
-            gc.setFill(Color.web("#A0A0A0"));
+            gc.setFill(Color.web("#340000"));
             gc.fillOval(x - 2, y - 2, 4, 4);
         }
     }

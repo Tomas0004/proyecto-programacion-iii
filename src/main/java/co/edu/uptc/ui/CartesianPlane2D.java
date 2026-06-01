@@ -330,12 +330,7 @@ public class CartesianPlane2D extends Canvas {
                 gc.strokeOval(x - size / 2, y - size / 2, size, size);
                 break;
             case ROBOT:
-                // Dibujar robot como un círculo azul lleno
-                gc.setFill(Color.web("#00AA00"));
-                gc.fillOval(x - size / 2, y - size / 2, size, size);
-                gc.setStroke(Color.web("#008800"));
-                gc.setLineWidth(2);
-                gc.strokeOval(x - size / 2, y - size / 2, size, size);
+                drawRobot(gc, shape, x, y, size);
                 break;
             case DESTINATION:
                 // Dibujar destino como una estrella roja
@@ -654,6 +649,52 @@ public class CartesianPlane2D extends Canvas {
      */
     public void setShortestPath(List<Node> path) {
         this.shortestPath = path != null ? path : new ArrayList<>();
+    }
+
+    public void drawRobot(GraphicsContext gc, Shape shape, int x, int y, double size) {
+        // Cuerpo principal (verde metálico, más pequeño)
+        double bodySize = size * 0.85;
+        gc.setFill(Color.web("#3CB371"));
+        gc.fillOval(x - bodySize / 2, y - bodySize / 2, bodySize, bodySize);
+        gc.setStroke(Color.web("#2E8B57"));
+        gc.setLineWidth(2);
+        gc.strokeOval(x - bodySize / 2, y - bodySize / 2, bodySize, bodySize);
+
+        // Ojos robóticos tipo LED (rectangulares con brillo)
+        double eyeWidth = bodySize / 4.5;
+        double eyeHeight = bodySize / 7;
+        double eyeYOffset = bodySize / 6;
+
+        // Ojo izquierdo
+        gc.setFill(Color.web("#a91400"));  // Cyan brillante
+        gc.fillRoundRect(x - bodySize / 3 - eyeWidth / 2, y - eyeYOffset - eyeHeight / 2, eyeWidth, eyeHeight, 4, 4);
+        gc.setFill(Color.web("#f3f3f3"));
+        gc.fillRoundRect(x - bodySize / 3 - eyeWidth / 3, y - eyeYOffset - eyeHeight / 3, eyeWidth / 3, eyeHeight / 3, 2, 2);
+
+        // Ojo derecho
+        gc.setFill(Color.web("#a91400"));
+        gc.fillRoundRect(x + bodySize / 3 - eyeWidth / 2, y - eyeYOffset - eyeHeight / 2, eyeWidth, eyeHeight, 4, 4);
+        gc.setFill(Color.web("#f3f3f3"));
+        gc.fillRoundRect(x + bodySize / 3 - eyeWidth / 6, y - eyeYOffset - eyeHeight / 3, eyeWidth / 3, eyeHeight / 3, 2, 2);
+
+        // Antena (línea + círculo)
+        gc.setStroke(Color.GRAY);
+        gc.setLineWidth(3);
+        gc.strokeLine(x, y - bodySize / 2, x, y - bodySize / 2 - bodySize / 5);
+        gc.setFill(Color.RED);
+        gc.fillOval(x - bodySize / 10, y - bodySize / 2 - bodySize / 5 - bodySize / 10, bodySize / 5, bodySize / 5);
+
+        // Tornillos decorativos
+        double screwSize = bodySize / 12;
+        gc.setFill(Color.DARKGRAY);
+        gc.fillOval(x - bodySize / 2 + screwSize, y - bodySize / 2 + screwSize, screwSize, screwSize);
+        gc.fillOval(x + bodySize / 2 - screwSize * 2, y - bodySize / 2 + screwSize, screwSize, screwSize);
+        gc.fillOval(x - bodySize / 2 + screwSize, y + bodySize / 2 - screwSize * 2, screwSize, screwSize);
+        gc.fillOval(x + bodySize / 2 - screwSize * 2, y + bodySize / 2 - screwSize * 2, screwSize, screwSize);
+
+        // Brillo especular (efecto metálico)
+        gc.setFill(Color.rgb(255, 255, 255, 0.25));
+        gc.fillOval(x - bodySize / 3, y - bodySize / 3, bodySize / 5, bodySize / 5);
     }
 }
 

@@ -7,6 +7,7 @@
 *.exe
 *.out
 
+token
 # Maven
 target/
 pom.xml.tag
@@ -54,3 +55,4 @@ build/
 .settings
 .target
 .class
+.gitignore

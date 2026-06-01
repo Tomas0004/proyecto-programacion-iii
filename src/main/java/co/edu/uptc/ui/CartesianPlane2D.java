@@ -450,21 +450,15 @@ public class CartesianPlane2D extends Canvas {
             double widthPixels = (segment.getWidth() / (range[1] - range[0])) * (width - 2 * PADDING);
             
             // Dibujar el segmento como un rectángulo grueso
-            gc.setStroke(Color.web("#00BFFF"));
+            gc.setStroke(Color.web("#810000"));
             gc.setLineWidth(widthPixels);
             gc.strokeLine(x1, y1, x2, y2);
             
             // Dibujar pequeños círculos en los extremos
-            gc.setFill(Color.web("#00BFFF"));
+            gc.setFill(Color.web("#810000"));
             gc.fillOval(x1 - 4, y1 - 4, 8, 8);
             gc.fillOval(x2 - 4, y2 - 4, 8, 8);
             
-            // Dibujar etiqueta del ancho
-            int midX = (x1 + x2) / 2;
-            int midY = (y1 + y2) / 2;
-            gc.setFill(Color.web("#00BFFF"));
-            gc.setFont(new Font("Arial", 10));
-            gc.fillText(String.format("w:%.2f", segment.getWidth()), midX + 5, midY - 5);
         }
     }
 

@@ -185,11 +185,6 @@
     </Label>
     <TextField fx:id="segmentEnd2TextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="0"/>
 
-    <Label text="Ancho del Segmento:">
-        <style>-fx-text-fill: #CCCCCC; -fx-font-size: 11;</style>
-    </Label>
-    <TextField fx:id="segmentWidthTextField" prefWidth="160" style="-fx-padding: 5px; -fx-font-size: 11; -fx-background-color: #3E3E42; -fx-text-fill: #CCCCCC;" promptText="1.0"/>
-
     <Button fx:id="addSegmentButton" text="Crear Segmento" prefWidth="160"
             style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #7C3AED; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
             onAction="#onAddSegment"/>

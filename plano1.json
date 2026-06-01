@@ -1,0 +1,2304 @@
+{
+  "range": [
+    0.0,
+    50.0,
+    0.0,
+    50.0
+  ],
+  "figures": [
+    {
+      "shape": "robot",
+      "x": 1.0,
+      "y": 1.0,
+      "size": 1.0
+    },
+    {
+      "shape": "destination",
+      "x": 40.0,
+      "y": 40.0,
+      "size": 1.0
+    }
+  ],
+  "segments": [
+    {
+      "startX": 0.0,
+      "startY": 0.0,
+      "endX": 0.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 4.0,
+      "endX": 0.0,
+      "endY": 49.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 2.0,
+      "endX": 2.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 22.0,
+      "endX": 2.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 34.0,
+      "endX": 2.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 42.0,
+      "endX": 2.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 0.0,
+      "endX": 4.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 6.0,
+      "endX": 4.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 10.0,
+      "endX": 4.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 24.0,
+      "endX": 4.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 36.0,
+      "endX": 4.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 40.0,
+      "endX": 4.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 46.0,
+      "endX": 4.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 8.0,
+      "endX": 6.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 12.0,
+      "endX": 6.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 16.0,
+      "endX": 6.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 24.0,
+      "endX": 6.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 36.0,
+      "endX": 6.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 42.0,
+      "endX": 6.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 2.0,
+      "endX": 8.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 10.0,
+      "endX": 8.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 14.0,
+      "endX": 8.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 24.0,
+      "endX": 8.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 34.0,
+      "endX": 8.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 48.0,
+      "endX": 8.0,
+      "endY": 49.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 6.0,
+      "endX": 10.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 12.0,
+      "endX": 10.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 18.0,
+      "endX": 10.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 22.0,
+      "endX": 10.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 36.0,
+      "endX": 10.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 44.0,
+      "endX": 10.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 2.0,
+      "endX": 12.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 10.0,
+      "endX": 12.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 14.0,
+      "endX": 12.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 18.0,
+      "endX": 12.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 34.0,
+      "endX": 12.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 40.0,
+      "endX": 12.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 4.0,
+      "endX": 14.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 12.0,
+      "endX": 14.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 16.0,
+      "endX": 14.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 24.0,
+      "endX": 14.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 30.0,
+      "endX": 14.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 36.0,
+      "endX": 14.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 0.0,
+      "endX": 16.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 10.0,
+      "endX": 16.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 20.0,
+      "endX": 16.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 26.0,
+      "endX": 16.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 32.0,
+      "endX": 16.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 48.0,
+      "endX": 16.0,
+      "endY": 49.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 2.0,
+      "endX": 18.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 18.0,
+      "endX": 18.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 24.0,
+      "endX": 18.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 34.0,
+      "endX": 18.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 44.0,
+      "endX": 18.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 4.0,
+      "endX": 20.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 16.0,
+      "endX": 20.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 30.0,
+      "endX": 20.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 40.0,
+      "endX": 20.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 2.0,
+      "endX": 22.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 10.0,
+      "endX": 22.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 20.0,
+      "endX": 22.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 30.0,
+      "endX": 22.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 38.0,
+      "endX": 22.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 44.0,
+      "endX": 22.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 2.0,
+      "endX": 24.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 6.0,
+      "endX": 24.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 28.0,
+      "endX": 24.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 40.0,
+      "endX": 24.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 46.0,
+      "endX": 24.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 4.0,
+      "endX": 26.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 26.0,
+      "endX": 26.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 32.0,
+      "endX": 26.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 36.0,
+      "endX": 26.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 42.0,
+      "endX": 26.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 2.0,
+      "endX": 28.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 8.0,
+      "endX": 28.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 12.0,
+      "endX": 28.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 18.0,
+      "endX": 28.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 22.0,
+      "endX": 28.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 30.0,
+      "endX": 28.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 34.0,
+      "endX": 28.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 40.0,
+      "endX": 28.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 46.0,
+      "endX": 28.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 4.0,
+      "endX": 30.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 10.0,
+      "endX": 30.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 26.0,
+      "endX": 30.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 30.0,
+      "endX": 30.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 38.0,
+      "endX": 30.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 48.0,
+      "endX": 30.0,
+      "endY": 49.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 4.0,
+      "endX": 32.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 12.0,
+      "endX": 32.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 16.0,
+      "endX": 32.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 24.0,
+      "endX": 32.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 28.0,
+      "endX": 32.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 34.0,
+      "endX": 32.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 42.0,
+      "endX": 32.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 46.0,
+      "endX": 32.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 2.0,
+      "endX": 34.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 8.0,
+      "endX": 34.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 14.0,
+      "endX": 34.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 18.0,
+      "endX": 34.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 26.0,
+      "endX": 34.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 32.0,
+      "endX": 34.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 36.0,
+      "endX": 34.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 44.0,
+      "endX": 34.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 0.0,
+      "endX": 36.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 16.0,
+      "endX": 36.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 28.0,
+      "endX": 36.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 34.0,
+      "endX": 36.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 38.0,
+      "endX": 36.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 46.0,
+      "endX": 36.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 2.0,
+      "endX": 38.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 12.0,
+      "endX": 38.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 24.0,
+      "endX": 38.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 30.0,
+      "endX": 38.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 44.0,
+      "endX": 38.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 6.0,
+      "endX": 40.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 18.0,
+      "endX": 40.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 28.0,
+      "endX": 40.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 38.0,
+      "endX": 40.0,
+      "endY": 39.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 42.0,
+      "endX": 40.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 2.0,
+      "endX": 42.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 12.0,
+      "endX": 42.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 16.0,
+      "endX": 42.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 22.0,
+      "endX": 42.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 40.0,
+      "endX": 42.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 46.0,
+      "endX": 42.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 0.0,
+      "endX": 44.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 14.0,
+      "endX": 44.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 22.0,
+      "endX": 44.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 34.0,
+      "endX": 44.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 38.0,
+      "endX": 44.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 42.0,
+      "endX": 44.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 48.0,
+      "endX": 44.0,
+      "endY": 49.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 6.0,
+      "endX": 46.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 16.0,
+      "endX": 46.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 24.0,
+      "endX": 46.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 32.0,
+      "endX": 46.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 40.0,
+      "endX": 46.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 46.0,
+      "endX": 46.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 2.0,
+      "endX": 48.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 8.0,
+      "endX": 48.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 18.0,
+      "endX": 48.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 30.0,
+      "endX": 48.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 34.0,
+      "endX": 48.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 38.0,
+      "endX": 48.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 42.0,
+      "endX": 48.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "VERTICAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 0.0,
+      "endX": 49.0,
+      "endY": 0.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 2.0,
+      "endX": 2.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 2.0,
+      "endX": 10.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 2.0,
+      "endX": 16.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 2.0,
+      "endX": 22.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 2.0,
+      "endX": 34.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 2.0,
+      "endX": 42.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 2.0,
+      "endX": 48.0,
+      "endY": 2.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 4.0,
+      "endX": 6.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 4.0,
+      "endX": 12.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 4.0,
+      "endX": 18.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 4.0,
+      "endX": 26.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 4.0,
+      "endX": 30.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 4.0,
+      "endX": 40.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 4.0,
+      "endX": 46.0,
+      "endY": 4.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 6.0,
+      "endX": 8.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 6.0,
+      "endX": 20.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 6.0,
+      "endX": 28.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 6.0,
+      "endX": 36.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 6.0,
+      "endX": 48.0,
+      "endY": 6.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 8.0,
+      "endX": 6.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 8.0,
+      "endX": 18.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 8.0,
+      "endX": 24.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 8.0,
+      "endX": 30.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 8.0,
+      "endX": 44.0,
+      "endY": 8.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 10.0,
+      "endX": 4.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 10.0,
+      "endX": 8.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 10.0,
+      "endX": 14.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 10.0,
+      "endX": 20.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 10.0,
+      "endX": 34.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 10.0,
+      "endX": 46.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 10.0,
+      "endX": 49.0,
+      "endY": 10.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 12.0,
+      "endX": 2.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 12.0,
+      "endX": 6.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 12.0,
+      "endX": 12.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 12.0,
+      "endX": 16.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 12.0,
+      "endX": 22.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 12.0,
+      "endX": 34.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 12.0,
+      "endX": 48.0,
+      "endY": 12.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 14.0,
+      "endX": 8.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 14.0,
+      "endX": 22.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 14.0,
+      "endX": 28.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 14.0,
+      "endX": 42.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 14.0,
+      "endX": 49.0,
+      "endY": 14.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 16.0,
+      "endX": 6.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 16.0,
+      "endX": 12.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 16.0,
+      "endX": 20.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 16.0,
+      "endX": 30.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 16.0,
+      "endX": 34.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 16.0,
+      "endX": 42.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 16.0,
+      "endX": 48.0,
+      "endY": 16.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 18.0,
+      "endX": 4.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 18.0,
+      "endX": 12.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 18.0,
+      "endX": 16.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 18.0,
+      "endX": 40.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 18.0,
+      "endX": 44.0,
+      "endY": 18.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 20.0,
+      "endX": 10.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 20.0,
+      "endX": 18.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 20.0,
+      "endX": 24.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 20.0,
+      "endX": 38.0,
+      "endY": 20.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 22.0,
+      "endX": 10.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 22.0,
+      "endX": 16.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 22.0,
+      "endX": 20.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 22.0,
+      "endX": 42.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 22.0,
+      "endX": 46.0,
+      "endY": 22.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 4.0,
+      "startY": 24.0,
+      "endX": 6.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 24.0,
+      "endX": 18.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 24.0,
+      "endX": 26.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 24.0,
+      "endX": 40.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 24.0,
+      "endX": 48.0,
+      "endY": 24.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 26.0,
+      "endX": 16.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 26.0,
+      "endX": 28.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 26.0,
+      "endX": 36.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 26.0,
+      "endX": 44.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 26.0,
+      "endX": 49.0,
+      "endY": 26.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 28.0,
+      "endX": 10.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 28.0,
+      "endX": 24.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 28.0,
+      "endX": 32.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 28.0,
+      "endX": 40.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 28.0,
+      "endX": 49.0,
+      "endY": 28.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 30.0,
+      "endX": 12.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 30.0,
+      "endX": 16.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 30.0,
+      "endX": 20.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 30.0,
+      "endX": 30.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 30.0,
+      "endX": 34.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 30.0,
+      "endX": 48.0,
+      "endY": 30.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 32.0,
+      "endX": 4.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 8.0,
+      "startY": 32.0,
+      "endX": 10.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 32.0,
+      "endX": 14.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 16.0,
+      "startY": 32.0,
+      "endX": 20.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 32.0,
+      "endX": 26.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 32.0,
+      "endX": 40.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 32.0,
+      "endX": 44.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 32.0,
+      "endX": 48.0,
+      "endY": 32.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 34.0,
+      "endX": 16.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 34.0,
+      "endX": 22.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 24.0,
+      "startY": 34.0,
+      "endX": 28.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 34.0,
+      "endX": 36.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 34.0,
+      "endX": 42.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 34.0,
+      "endX": 46.0,
+      "endY": 34.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 20.0,
+      "startY": 36.0,
+      "endX": 26.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 36.0,
+      "endX": 30.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 36.0,
+      "endX": 40.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 36.0,
+      "endX": 49.0,
+      "endY": 36.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 38.0,
+      "endX": 4.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 10.0,
+      "startY": 38.0,
+      "endX": 16.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 38.0,
+      "endX": 30.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 36.0,
+      "startY": 38.0,
+      "endX": 38.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 38.0,
+      "endX": 44.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 38.0,
+      "endX": 48.0,
+      "endY": 38.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 40.0,
+      "endX": 6.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 14.0,
+      "startY": 40.0,
+      "endX": 18.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 40.0,
+      "endX": 34.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 40.0,
+      "endX": 39.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 41.0,
+      "startY": 40.0,
+      "endX": 42.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 40.0,
+      "endX": 48.0,
+      "endY": 40.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 42.0,
+      "endX": 28.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 34.0,
+      "startY": 42.0,
+      "endX": 40.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 42.0,
+      "startY": 42.0,
+      "endX": 46.0,
+      "endY": 42.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 44.0,
+      "endX": 8.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 44.0,
+      "endX": 16.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 44.0,
+      "endX": 30.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 44.0,
+      "endX": 38.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 40.0,
+      "startY": 44.0,
+      "endX": 42.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 46.0,
+      "startY": 44.0,
+      "endX": 48.0,
+      "endY": 44.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 0.0,
+      "startY": 46.0,
+      "endX": 18.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 22.0,
+      "startY": 46.0,
+      "endX": 24.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 26.0,
+      "startY": 46.0,
+      "endX": 28.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 30.0,
+      "startY": 46.0,
+      "endX": 32.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 38.0,
+      "startY": 46.0,
+      "endX": 44.0,
+      "endY": 46.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 2.0,
+      "startY": 48.0,
+      "endX": 4.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 6.0,
+      "startY": 48.0,
+      "endX": 8.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 12.0,
+      "startY": 48.0,
+      "endX": 16.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 18.0,
+      "startY": 48.0,
+      "endX": 22.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 28.0,
+      "startY": 48.0,
+      "endX": 30.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 32.0,
+      "startY": 48.0,
+      "endX": 40.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 44.0,
+      "startY": 48.0,
+      "endX": 46.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    },
+    {
+      "startX": 48.0,
+      "startY": 48.0,
+      "endX": 49.0,
+      "endY": 48.0,
+      "width": 0.02,
+      "type": "HORIZONTAL"
+    }
+  ]
+}

@@ -63,9 +63,6 @@ public class ControlsPanelController {
     private TextField segmentEnd2TextField;
     
     @FXML
-    private TextField segmentWidthTextField;
-    
-    @FXML
     private TextField filenameTextField;
 
     private CartesianPlane2D cartesianCanvas;
@@ -369,7 +366,6 @@ public class ControlsPanelController {
         double startY = parseDouble(segmentStart2TextField, 0);
         double endX = parseDouble(segmentEnd1TextField, 5);
         double endY = parseDouble(segmentEnd2TextField, 0);
-        double width = parseDouble(segmentWidthTextField, 1.0);
         
         // Validar que sea horizontal o vertical
         if (Math.abs(startX - endX) > 0.01 && Math.abs(startY - endY) > 0.01) {
@@ -386,13 +382,14 @@ public class ControlsPanelController {
         Node endNode = new Node(998, endX, endY, "Seg_End");
         
         try {
-            cartesianCanvas.addLateralSegment(startNode, endNode, width);
+            cartesianCanvas.addLateralSegment(startNode, endNode, 0.02);
+            cartesianCanvas.draw();
             
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Segmento Creado");
             alert.setHeaderText("Segmento Lateral Creado");
-            alert.setContentText(String.format("Segmento creado desde (%.1f, %.1f) a (%.1f, %.1f) con ancho %.2f",
-                    startX, startY, endX, endY, width));
+            alert.setContentText(String.format("Segmento creado desde (%.1f, %.1f) a (%.1f, %.1f)",
+                    startX, startY, endX, endY));
             alert.showAndWait();
         } catch (IllegalArgumentException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -141,4 +141,18 @@
             style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #CA3C3C; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
             onAction="#onDeleteNode"/>
 
+    <!-- Sección de Algoritmo Dijkstra -->
+    <Separator style="-fx-text-fill: #404040;"/>
+
+    <Label text="Algoritmo de Dijkstra">
+        <font>
+            <Font size="12"/>
+        </font>
+        <style>-fx-text-fill: #FFFFFF; -fx-font-weight: bold;</style>
+    </Label>
+
+    <Button fx:id="findPathButton" text="Encontrar Camino Más Corto" prefWidth="160"
+            style="-fx-padding: 10px 20px; -fx-font-size: 11px; -fx-font-weight: bold; -fx-background-color: #0C7D2D; -fx-text-fill: #FFFFFF; -fx-border-radius: 4; -fx-background-radius: 4;"
+            onAction="#onFindShortestPath"/>
+
 </VBox>

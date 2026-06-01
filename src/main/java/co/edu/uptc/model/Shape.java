@@ -6,12 +6,8 @@ package co.edu.uptc.model;
 public enum Shape {
     SQUARE("Cuadrado", "square"),
     CIRCLE("Círculo", "circle"),
-    TRIANGLE("Triángulo", "triangle"),
-    RECTANGLE("Rectángulo", "rectangle"),
-    PENTAGON("Pentágono", "pentagon"),
-    HEXAGON("Hexágono", "hexagon"),
-    DIAMOND("Diamante", "diamond"),
-    STAR("Estrella", "star");
+    ROBOT("Robot", "robot"),
+    DESTINATION("Destino", "destination");
 
     private final String displayName;
     private final String id;

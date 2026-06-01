@@ -38,7 +38,7 @@ public class GraphVisualizer {
             controller.initializeGraph(graph, planeService);
             
             // Crear la escena
-            Scene scene = new Scene(root, 1100, 800);
+            Scene scene = new Scene(root, 1700, 1000);
             scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
             // Configurar la ventana

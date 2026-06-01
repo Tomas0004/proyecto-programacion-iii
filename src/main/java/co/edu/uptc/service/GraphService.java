@@ -150,6 +150,101 @@ public class GraphService {
         return stats;
     }
 
+    /**
+     * Encuentra el camino más corto entre dos nodos usando el algoritmo de Dijkstra.
+     */
+    public DijkstraResult dijkstra(int startNodeId, int endNodeId) {
+        Node startNode = graph.getNode(startNodeId);
+        Node endNode = graph.getNode(endNodeId);
+        
+        if (startNode == null || endNode == null) {
+            return new DijkstraResult(new ArrayList<>(), Double.POSITIVE_INFINITY);
+        }
+        
+        // Inicializar distancias
+        Map<Integer, Double> distances = new HashMap<>();
+        Map<Integer, Integer> previous = new HashMap<>();
+        PriorityQueue<Integer> queue = new PriorityQueue<>(
+            (a, b) -> Double.compare(distances.getOrDefault(a, Double.POSITIVE_INFINITY),
+                                     distances.getOrDefault(b, Double.POSITIVE_INFINITY))
+        );
+        
+        // Inicializar todas las distancias a infinito y el nodo inicial a 0
+        for (Node node : graph.getNodes()) {
+            distances.put(node.getId(), Double.POSITIVE_INFINITY);
+            previous.put(node.getId(), -1);
+        }
+        distances.put(startNodeId, 0.0);
+        queue.add(startNodeId);
+        
+        // Algoritmo de Dijkstra
+        Set<Integer> visited = new HashSet<>();
+        
+        while (!queue.isEmpty()) {
+            int currentId = queue.poll();
+            
+            if (visited.contains(currentId)) continue;
+            visited.add(currentId);
+            
+            Node currentNode = graph.getNode(currentId);
+            double currentDistance = distances.get(currentId);
+            
+            // Si alcanzamos el nodo destino, podemos terminar
+            if (currentId == endNodeId) break;
+            
+            // Explorar vecinos
+            for (Edge edge : graph.getEdges()) {
+                Node neighbor = null;
+                
+                if (edge.getSource().equals(currentNode)) {
+                    neighbor = edge.getDestination();
+                } else if (!graph.isDirected() && edge.getDestination().equals(currentNode)) {
+                    neighbor = edge.getSource();
+                }
+                
+                if (neighbor != null && !visited.contains(neighbor.getId())) {
+                    double newDistance = currentDistance + edge.getWeight();
+                    
+                    if (newDistance < distances.get(neighbor.getId())) {
+                        distances.put(neighbor.getId(), newDistance);
+                        previous.put(neighbor.getId(), currentId);
+                        queue.add(neighbor.getId());
+                    }
+                }
+            }
+        }
+        
+        // Reconstruir el camino
+        List<Node> path = new ArrayList<>();
+        int current = endNodeId;
+        
+        if (distances.get(endNodeId) != Double.POSITIVE_INFINITY) {
+            while (current != -1) {
+                path.add(0, graph.getNode(current));
+                current = previous.get(current);
+            }
+        }
+        
+        return new DijkstraResult(path, distances.get(endNodeId));
+    }
+    
+    /**
+     * Clase interna para almacenar el resultado de Dijkstra.
+     */
+    public static class DijkstraResult {
+        public List<Node> path;
+        public double totalDistance;
+        
+        public DijkstraResult(List<Node> path, double totalDistance) {
+            this.path = path;
+            this.totalDistance = totalDistance;
+        }
+        
+        public boolean hasPath() {
+            return totalDistance != Double.POSITIVE_INFINITY;
+        }
+    }
+
     @Override
     public String toString() {
         return graph.toString();

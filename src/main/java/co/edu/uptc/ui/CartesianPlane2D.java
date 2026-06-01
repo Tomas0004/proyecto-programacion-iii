@@ -28,6 +28,7 @@ public class CartesianPlane2D extends Canvas {
     private static final int PADDING = 60;
     private boolean showGrid = true;
     private int gridSpacing = 1;
+    private List<Node> shortestPath;  // Camino más corto a mostrar
 
     // Variables para manejo del ratón
     private Figure selectedFigure;
@@ -52,12 +53,13 @@ public class CartesianPlane2D extends Canvas {
     }
 
     public CartesianPlane2D(Graph graph, CartesianPlaneService planeService) {
-        super(1400, 800);
+        super(1600, 1000);
         this.graph = graph;
         this.planeService = planeService;
         this.figures = new ArrayList<>();
         this.gridIntersections = new HashMap<>();
         this.selectedFigure = null;
+        this.shortestPath = new ArrayList<>();
         
         // Inicializar nodos en las intersecciones de la cuadrícula
         initializeGridIntersections();
@@ -72,8 +74,11 @@ public class CartesianPlane2D extends Canvas {
 
     /**
      * Inicializa los nodos en las intersecciones de la cuadrícula.
+     * Solo agrega nodos que NO estén debajo de figuras.
      */
     private void initializeGridIntersections() {
+        graph.clear();
+        gridIntersections.clear();
 
         double[] range = planeService.getPlaneRange();
         double minX = range[0];
@@ -81,16 +86,98 @@ public class CartesianPlane2D extends Canvas {
         double minY = range[2];
         double maxY = range[3];
 
-        int nodeId = graph.getNodeCount() + 1;
+        int nodeId = 1;
+        
+        // Primera pasada: crear nodos que no estén bajo figuras
         for (int gridX = (int) minX; gridX <= (int) maxX; gridX += gridSpacing) {
             for (int gridY = (int) minY; gridY <= (int) maxY; gridY += gridSpacing) {
                 String key = gridX + "," + gridY;
 
-                if (!gridIntersections.containsKey(key)) {
+                if (!gridIntersections.containsKey(key) && !isNodeUnderFigure(gridX, gridY)) {
                     Node node = new Node(nodeId, gridX, gridY);
                     gridIntersections.put(key, node);
                     graph.addNode(node);
                     nodeId++;
+                }
+            }
+        }
+        
+        // Segunda pasada: crear aristas entre nodos adyacentes
+        createAllEdges();
+    }
+    
+    /**
+     * Verifica si un nodo está debajo de alguna figura (solo SQUARE y CIRCLE).
+     * Los nodos bajo ROBOT y DESTINATION permanecen en el grafo.
+     */
+    private boolean isNodeUnderFigure(double nodeX, double nodeY) {
+        double[] range = planeService.getPlaneRange();
+        int width = (int) getWidth();
+        int height = (int) getHeight();
+        
+        int nodeScreenX = screenX(nodeX, range[0], range[1], width);
+        int nodeScreenY = screenY(nodeY, range[2], range[3], height);
+        
+        for (Figure figure : figures) {
+            // Solo excluir nodos bajo SQUARE y CIRCLE, no bajo ROBOT ni DESTINATION
+            if (figure.shape != Shape.SQUARE && figure.shape != Shape.CIRCLE) {
+                continue;
+            }
+            
+            int figScreenX = screenX(figure.x, range[0], range[1], width);
+            int figScreenY = screenY(figure.y, range[2], range[3], height);
+            
+            double sizePixels = (figure.size / (range[1] - range[0])) * (width - 2 * PADDING);
+            
+            // Verificar si el nodo está dentro de la figura
+            if (nodeScreenX >= figScreenX - sizePixels / 2 && nodeScreenX <= figScreenX + sizePixels / 2 &&
+                nodeScreenY >= figScreenY - sizePixels / 2 && nodeScreenY <= figScreenY + sizePixels / 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /**
+     * Crea todas las aristas posibles entre nodos adyacentes.
+     */
+    private void createAllEdges() {
+        graph.getEdges().clear();
+        
+        double[] range = planeService.getPlaneRange();
+        double minX = range[0];
+        double maxX = range[1];
+        double minY = range[2];
+        double maxY = range[3];
+        
+        // Crear aristas para cada nodo con sus vecinos adyacentes
+        for (int gridX = (int) minX; gridX <= (int) maxX; gridX += gridSpacing) {
+            for (int gridY = (int) minY; gridY <= (int) maxY; gridY += gridSpacing) {
+                String key = gridX + "," + gridY;
+                Node sourceNode = gridIntersections.get(key);
+                
+                if (sourceNode == null) continue;
+                
+                // Crear aristas hacia los 8 vecinos adyacentes
+                int[][] directions = {
+                    {1, 0}, {-1, 0}, {0, 1}, {0, -1},  // Arriba, abajo, derecha, izquierda
+                };
+                
+                for (int[] dir : directions) {
+                    int neighborX = gridX + dir[0] * gridSpacing;
+                    int neighborY = gridY + dir[1] * gridSpacing;
+                    String neighborKey = neighborX + "," + neighborY;
+                    Node destNode = gridIntersections.get(neighborKey);
+                    
+                    if (destNode != null) {
+                        // Calcular peso como la distancia euclidiana
+                        double dx = destNode.getX() - sourceNode.getX();
+                        double dy = destNode.getY() - sourceNode.getY();
+                        double weight = Math.sqrt(dx * dx + dy * dy);
+                        
+                        Edge edge = new Edge(sourceNode, destNode, weight);
+                        graph.addEdge(edge);
+                    }
                 }
             }
         }
@@ -228,87 +315,39 @@ public class CartesianPlane2D extends Canvas {
     }
 
     /**
-     * Dibuja una forma específica en las coordenadas dadas.
+     * Dibuja una forma específica en las coordenadas dadas (solo contorno, sin relleno).
      */
     private void drawShape(GraphicsContext gc, Shape shape, int x, int y, double size) {
-        gc.setFill(Color.web("#FF6B6B"));
-        gc.setStroke(Color.web("#FF0000"));
-        gc.setLineWidth(2);
-
         switch (shape) {
             case SQUARE:
-                gc.fillRect(x - size / 2, y - size / 2, size, size);
+                gc.setStroke(Color.web("#FF0000"));
+                gc.setLineWidth(2);
                 gc.strokeRect(x - size / 2, y - size / 2, size, size);
                 break;
             case CIRCLE:
-                gc.fillOval(x - size / 2, y - size / 2, size, size);
+                gc.setStroke(Color.web("#FF0000"));
+                gc.setLineWidth(2);
                 gc.strokeOval(x - size / 2, y - size / 2, size, size);
                 break;
-            case RECTANGLE:
-                double width = size * 1.5;
-                double height = size * 0.75;
-                gc.fillRect(x - width / 2, y - height / 2, width, height);
-                gc.strokeRect(x - width / 2, y - height / 2, width, height);
+            case ROBOT:
+                // Dibujar robot como un círculo azul lleno
+                gc.setFill(Color.web("#00AA00"));
+                gc.fillOval(x - size / 2, y - size / 2, size, size);
+                gc.setStroke(Color.web("#008800"));
+                gc.setLineWidth(2);
+                gc.strokeOval(x - size / 2, y - size / 2, size, size);
                 break;
-            case TRIANGLE:
-                drawTriangle(gc, x, y, size);
-                break;
-            case PENTAGON:
-                drawPolygon(gc, x, y, size, 5);
-                break;
-            case HEXAGON:
-                drawPolygon(gc, x, y, size, 6);
-                break;
-            case DIAMOND:
-                drawDiamond(gc, x, y, size);
-                break;
-            case STAR:
-                drawStar(gc, x, y, size);
+            case DESTINATION:
+                // Dibujar destino como una estrella roja
+                drawDestinationStar(gc, x, y, size);
                 break;
         }
     }
-
+    
     /**
-     * Dibuja un triángulo.
+     * Dibuja una estrella para representar el destino.
      */
-    private void drawTriangle(GraphicsContext gc, int x, int y, double size) {
-        double[] xs = {x, x - size / 2, x + size / 2};
-        double[] ys = {y - size / 2, y + size / 2, y + size / 2};
-        gc.fillPolygon(xs, ys, 3);
-        gc.strokePolygon(xs, ys, 3);
-    }
-
-    /**
-     * Dibuja un polígono regular.
-     */
-    private void drawPolygon(GraphicsContext gc, int x, int y, double size, int sides) {
-        double[] xs = new double[sides];
-        double[] ys = new double[sides];
-        
-        for (int i = 0; i < sides; i++) {
-            double angle = 2 * Math.PI * i / sides - Math.PI / 2;
-            xs[i] = x + size / 2 * Math.cos(angle);
-            ys[i] = y + size / 2 * Math.sin(angle);
-        }
-        
-        gc.fillPolygon(xs, ys, sides);
-        gc.strokePolygon(xs, ys, sides);
-    }
-
-    /**
-     * Dibuja un diamante.
-     */
-    private void drawDiamond(GraphicsContext gc, int x, int y, double size) {
-        double[] xs = {x, x + size / 2, x, x - size / 2};
-        double[] ys = {y - size / 2, y, y + size / 2, y};
-        gc.fillPolygon(xs, ys, 4);
-        gc.strokePolygon(xs, ys, 4);
-    }
-
-    /**
-     * Dibuja una estrella.
-     */
-    private void drawStar(GraphicsContext gc, int x, int y, double size) {
+    private void drawDestinationStar(GraphicsContext gc, int x, int y, double size) {
         double[] xs = new double[10];
         double[] ys = new double[10];
         
@@ -319,15 +358,20 @@ public class CartesianPlane2D extends Canvas {
             ys[i] = y - radius * Math.sin(angle);
         }
         
+        gc.setFill(Color.web("#FF6B6B"));
         gc.fillPolygon(xs, ys, 10);
+        gc.setStroke(Color.web("#FF0000"));
+        gc.setLineWidth(2);
         gc.strokePolygon(xs, ys, 10);
     }
 
     /**
-     * Agrega una figura al lienzo.
+     * Agrega una figura al lienzo y reinicializa el grafo.
      */
     public void addFigure(Shape shape, double x, double y, double size) {
         figures.add(new Figure(shape, x, y, size));
+        // Reinicializar el grafo para actualizar qué nodos están bajo figuras
+        initializeGridIntersections();
     }
 
     /**
@@ -382,6 +426,36 @@ public class CartesianPlane2D extends Canvas {
             if (edge.isDirected()) {
                 drawArrow(gc, x1, y1, x2, y2);
             }
+        }
+        
+        // Dibujar el camino más corto
+        drawShortestPath(gc);
+    }
+    
+    /**
+     * Dibuja el camino más corto encontrado por Dijkstra.
+     */
+    private void drawShortestPath(GraphicsContext gc) {
+        if (shortestPath == null || shortestPath.size() < 2) return;
+        
+        double[] range = planeService.getPlaneRange();
+        int width = (int) getWidth();
+        int height = (int) getHeight();
+        
+        // Dibujar líneas del camino en color amarillo
+        gc.setStroke(Color.web("#FFFF00"));
+        gc.setLineWidth(4);
+        
+        for (int i = 0; i < shortestPath.size() - 1; i++) {
+            Node node1 = shortestPath.get(i);
+            Node node2 = shortestPath.get(i + 1);
+            
+            int x1 = screenX(node1.getX(), range[0], range[1], width);
+            int y1 = screenY(node1.getY(), range[2], range[3], height);
+            int x2 = screenX(node2.getX(), range[0], range[1], width);
+            int y2 = screenY(node2.getY(), range[2], range[3], height);
+            
+            gc.strokeLine(x1, y1, x2, y2);
         }
     }
 
@@ -539,6 +613,47 @@ public class CartesianPlane2D extends Canvas {
 
     public Graph getGraph() {
         return graph;
+    }
+    
+    /**
+     * Obtiene una figura por su tipo de forma.
+     */
+    public Figure getFigureByShape(Shape shape) {
+        for (Figure figure : figures) {
+            if (figure.shape == shape) {
+                return figure;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Obtiene el nodo más cercano a las coordenadas especificadas.
+     */
+    public Node getClosestNode(double x, double y) {
+        Collection<Node> nodes = graph.getNodes();
+        Node closest = null;
+        double minDistance = Double.POSITIVE_INFINITY;
+        
+        for (Node node : nodes) {
+            double dx = node.getX() - x;
+            double dy = node.getY() - y;
+            double distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = node;
+            }
+        }
+        
+        return closest;
+    }
+    
+    /**
+     * Establece el camino más corto a mostrar.
+     */
+    public void setShortestPath(List<Node> path) {
+        this.shortestPath = path != null ? path : new ArrayList<>();
     }
 }
 

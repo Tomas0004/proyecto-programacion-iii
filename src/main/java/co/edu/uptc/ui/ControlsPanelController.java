@@ -1,14 +1,16 @@
 package co.edu.uptc.ui;
 
-import co.edu.uptc.model.Shape;
 import co.edu.uptc.model.Graph;
 import co.edu.uptc.model.Node;
+import co.edu.uptc.model.Shape;
 import co.edu.uptc.service.CartesianPlaneService;
+import co.edu.uptc.service.GraphService;
+import co.edu.uptc.service.GraphService.DijkstraResult;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
 
 /**
  * Controlador para el panel de controles lateral.
@@ -52,7 +54,7 @@ public class ControlsPanelController {
 
     @FXML
     public void initialize() {
-        // Inicializar ListView con todas las formas disponibles
+        // Inicializar ListView con todas las formas
         shapesListView.setItems(FXCollections.observableArrayList(Shape.values()));
         
         // Seleccionar la primera forma por defecto
@@ -141,7 +143,9 @@ public class ControlsPanelController {
 
         double x = parseDouble(xTextField, 0);
         double y = parseDouble(yTextField, 0);
-        double size = parseDouble(sizeTextField, 10);
+        
+        // Robot siempre tiene tamaño 1
+        double size = selectedShape == Shape.ROBOT || selectedShape == Shape.DESTINATION ? 1.0 : parseDouble(sizeTextField, 10);
 
         cartesianCanvas.addFigure(selectedShape, x, y, size);
         cartesianCanvas.draw();
@@ -211,6 +215,9 @@ public class ControlsPanelController {
 
         if (nodeToDelete != null) {
             graph.removeNode(nodeToDelete.getId());
+
+            System.out.println(cartesianCanvas.getGraph()); ////////////////
+
             cartesianCanvas.draw();
             
             // Mostrar confirmación
@@ -226,5 +233,100 @@ public class ControlsPanelController {
             alert.setContentText("No se encontró un nodo en las coordenadas (" + x + ", " + y + ")");
             alert.showAndWait();
         }
+    }
+    
+    /**
+     * Encuentra el robot en las figuras.
+     */
+    public CartesianPlane2D.Figure getRobot() {
+        if (cartesianCanvas == null) return null;
+        return cartesianCanvas.getFigureByShape(Shape.ROBOT);
+    }
+    
+    /**
+     * Encuentra el destino en las figuras.
+     */
+    public CartesianPlane2D.Figure getDestination() {
+        if (cartesianCanvas == null) return null;
+        return cartesianCanvas.getFigureByShape(Shape.DESTINATION);
+    }
+    
+    /**
+     * Encuentra el camino más corto entre el robot y el destino.
+     */
+    @FXML
+    private void onFindShortestPath() {
+        if (cartesianCanvas == null) {
+            System.err.println("CartesianCanvas no está inicializado");
+            return;
+        }
+        
+        CartesianPlane2D.Figure robot = getRobot();
+        CartesianPlane2D.Figure destination = getDestination();
+        
+        if (robot == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Robot No Encontrado");
+            alert.setHeaderText("El robot no está colocado");
+            alert.setContentText("Por favor, coloca el robot en el plano primero.");
+            alert.showAndWait();
+            return;
+        }
+        
+        if (destination == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Destino No Encontrado");
+            alert.setHeaderText("El destino no está colocado");
+            alert.setContentText("Por favor, coloca el destino en el plano primero.");
+            alert.showAndWait();
+            return;
+        }
+        
+        // Encontrar el nodo más cercano al robot y al destino
+        Node robotNode = cartesianCanvas.getClosestNode(robot.x, robot.y);
+        Node destNode = cartesianCanvas.getClosestNode(destination.x, destination.y);
+        
+        if (robotNode == null || destNode == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Nodo No Encontrado");
+            alert.setHeaderText("No se encontró nodo válido");
+            alert.setContentText("No hay nodos disponibles en las ubicaciones especificadas.");
+            alert.showAndWait();
+            return;
+        }
+        
+        // Ejecutar Dijkstra
+        GraphService graphService = new GraphService(cartesianCanvas.getGraph());
+        DijkstraResult result = graphService.dijkstra(robotNode.getId(), destNode.getId());
+        
+        if (!result.hasPath()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Sin Camino");
+            alert.setHeaderText("No existe camino");
+            alert.setContentText("No hay camino disponible entre el robot y el destino.");
+            alert.showAndWait();
+            return;
+        }
+        
+        // Mostrar resultado
+        StringBuilder pathInfo = new StringBuilder();
+        pathInfo.append("Camino encontrado! Distancia total: ").append(String.format("%.2f", result.totalDistance)).append("\n\nNodos en el camino:\n");
+        for (int i = 0; i < result.path.size(); i++) {
+            Node node = result.path.get(i);
+            pathInfo.append(String.format("%d. %s (%.1f, %.1f)", i + 1, node.getLabel(), node.getX(), node.getY()));
+            if (i < result.path.size() - 1) {
+                pathInfo.append("\n");
+            }
+        }
+        
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Camino Más Corto");
+        alert.setHeaderText("Resultado de Dijkstra");
+        alert.setContentText(pathInfo.toString());
+        alert.showAndWait();
+        
+        // Mostrar el camino en el canvas
+        cartesianCanvas.setShortestPath(result.path);
+        cartesianCanvas.draw();
     }
 }

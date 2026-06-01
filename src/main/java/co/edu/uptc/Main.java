@@ -25,7 +25,7 @@ public class Main extends Application {
         Graph graph = new Graph(false);
 
         // Crear el servicio del plano cartesiano
-        CartesianPlaneService planeService = new CartesianPlaneService(0, 10, 0, 5);
+        CartesianPlaneService planeService = new CartesianPlaneService(0, 20, 0, 20);
 
         // Crear el servicio de lógica del grafo
         GraphService graphService = new GraphService(graph);

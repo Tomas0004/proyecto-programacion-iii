@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -56,9 +57,11 @@
 
     <!-- Panel Derecho (Añadido por FXMLLoader dinámicamente) -->
     <right>
-        <VBox fx:id="rightPanel">
-            
-        </VBox>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: #2D2D30; -fx-control-inner-background: #2D2D30;">
+            <VBox fx:id="rightPanel">
+                
+            </VBox>
+        </ScrollPane>
     </right>
 
 </BorderPane>
